@@ -1,0 +1,64 @@
+<mvc:View controllerName="sapips.training.odata.controller.Main" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+
+    <Page id="page" title="{i18n>title}" class="headerTitle">
+
+        <Table
+            id="tableProducts"
+            items="{
+                path: '/Products',
+                sorter: {
+                path: 'ProductName'
+                    },
+                filters: [{
+                path: 'Discontinued',
+                operator: 'EQ',
+                value1: false
+                }]
+            }">
+
+            <headerToolbar>
+                <Toolbar id="idHToolbar">
+                    <Title id="idHTitle" text="{i18n>hTitle}"/>
+                </Toolbar>
+            </headerToolbar>
+            <infoToolbar>
+                <Toolbar id="idPrdToolbar">
+                    <Title id="idPrdTitle" text="{i18n>prdTitle}"/>
+                </Toolbar>
+            </infoToolbar>
+
+            <columns>
+                <Column id="idCol1">
+                    <Text id="idColText1" text="{i18n>colTitle1}"/>
+                </Column>
+
+                <Column id="idCol2">
+                    <Text id="idColText2" text="{i18n>colTitle2}"/>
+                </Column>
+
+                <Column id="idCol3">
+                    <Text id="idColText3" text="{i18n>colTitle3}"/>
+                </Column>
+            </columns>
+
+            <items>
+                <ColumnListItem id="idCLItem">
+                    <cells>
+                        <ObjectIdentifier id="idObjid1"
+                            title="{ProductName}"
+                            text="{i18n>prodTxt}: {ProductID}" />
+
+                        <Text id="idCText" text="{SupplierID}" />
+
+                        <ObjectIdentifier id="idObjId2"
+                            title="{UnitPrice}"
+                            text="{QuantityPerUnit}" />
+
+                    </cells>
+                </ColumnListItem>
+            </items>
+
+        </Table>
+
+    </Page>
+</mvc:View>
